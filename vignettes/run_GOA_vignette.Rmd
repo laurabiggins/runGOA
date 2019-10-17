@@ -1,0 +1,34 @@
+---
+title: "runGO vignette"
+output: rmarkdown::html_vignette
+vignette: >  
+  %\VignetteIndexEntry{runGO_vignette}
+  %\VignetteEngine{knitr::rmarkdown}  
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+```{r setup2}
+#library(runGOA)
+devtools::load_all()
+```
+
+```{r}
+mouse_results <- overrep_test(mouse_categories, genes_1)
+mouse_tibble <- tibble::as_tibble(mouse_results, rownames = "category")
+mouse_tibble
+```
+
+```{r}
+mouse_results <- overrep_test(mouse_categories, genes_1, return_genes = TRUE)
+mouse_tibble <- tibble::as_tibble(mouse_results, rownames = "category")
+mouse_tibble
+```
+

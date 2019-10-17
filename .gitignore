@@ -1,0 +1,8 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+inst/doc
+Human_GO_AllPathways_no_GO_iea_October_01_2019_symbol.gmt.txt
+Mouse_GO_AllPathways_no_GO_iea_October_01_2019_symbol.gmt.txt
+runGOA.Rproj
