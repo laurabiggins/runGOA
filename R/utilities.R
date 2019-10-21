@@ -11,26 +11,26 @@
 #' @examples
 #' clean_text("\thello_world")
 #' clean_text("\thello_world", upper_case = FALSE)
+#' @export
 
 clean_text <- function(text,
                        chars = c("\t", "\r", "\n", "\\", "\ ", "\""),
                        remove_empty = TRUE,
                        remove_dup = TRUE,
                        upper_case = TRUE
-  ) {
-      char_pattern <- paste(chars, collapse = "|")
-      char_pattern <- paste0("[", char_pattern, "]")
-      cleaned <- gsub(pattern = char_pattern, replacement = "", x = as.character(text))
-      if (remove_dup) cleaned <- remove_duplicates(cleaned)
-      if (upper_case) cleaned <- toupper(cleaned)
-      ifelse(remove_empty, return(cleaned[sapply(cleaned, nchar) > 0]), return(cleaned))
+) {
+  char_pattern <- paste(chars, collapse = "|")
+  char_pattern <- paste0("[", char_pattern, "]")
+  cleaned <- gsub(pattern = char_pattern, replacement = "", x = as.character(text))
+  if (remove_dup) cleaned <- remove_duplicates(cleaned)
+  if (upper_case) cleaned <- toupper(cleaned)
+  ifelse(remove_empty, return(cleaned[sapply(cleaned, nchar) > 0]), return(cleaned))
 }
+
 
 #' remove_duplicates
 #'
 #' remove duplicates from vector or data frame
-#'
-#' @keywords internal
 #'
 #' @param x vector or data frame to remove duplicates from
 #' @param column If a data frame is passed in, the column that is used
@@ -45,6 +45,8 @@ clean_text <- function(text,
 #' df <- data.frame(hello_string, 1:5)
 #' df
 #' remove_duplicates(df)
+#' @export
+
 remove_duplicates <- function(x, column = 1) {
   if (is.data.frame(x) | is.matrix(x)) {
     return(x[!duplicated(x[,column]), ])
@@ -56,4 +58,3 @@ remove_duplicates <- function(x, column = 1) {
     warning("data must be a vector, data frame or matrix")
   }
 }
-
