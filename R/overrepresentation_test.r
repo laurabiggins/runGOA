@@ -26,6 +26,7 @@
 #' @examples
 #' go_results <- overrep_test(all_go_categories, genes_1, background_genes)
 #' head(go_results)
+#' @export
 
 
 # list of categories is all the functional categories from the gmt file
@@ -37,7 +38,7 @@ overrep_test <- function(categories, query_genes, background_genes = NULL, min_q
     warning("No background genes were entered so all the genes in the categories will be used as the background set.")
     background_genes <- unique(as.vector(unlist(categories)))
   }
-  browser()
+  #browser()
   query_genes      <- clean_text(query_genes)
   background_genes <- clean_text(background_genes)
 
@@ -137,6 +138,7 @@ overrep_test <- function(categories, query_genes, background_genes = NULL, min_q
 #' @examples
 #' clean_text("\thello_world")
 #' clean_text("\thello_world", upper_case = FALSE)
+#' @export
 
 clean_text <- function(text,
                        chars = c("\t", "\r", "\n", "\\", "\ ", "\""),
