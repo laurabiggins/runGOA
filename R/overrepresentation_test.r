@@ -69,6 +69,7 @@ overrep_test <- function(categories, query_genes, background_genes = NULL, min_q
   }
 
   df$enrichment <- (df$query_in_category/length(query_genes))/(df$bg_in_category/length(background_genes))
+  df$enrichment <- signif(df$enrichment, digits = sig_digits)
 
   query_not_in_category <- length(query_genes) - df$query_in_category
   bg_not_in_category    <- length(background_genes)    - df$bg_in_category
@@ -119,8 +120,7 @@ overrep_test <- function(categories, query_genes, background_genes = NULL, min_q
     }
   }
 
-#  df[, 5:7] <- apply(df[, 5:7], 2, signif, digits = sig_digits)
+  df$adj_pval <- signif(df$adj_pval, digits = sig_digits)
 
   df[order(df$adj_pval), ]
-
 }
