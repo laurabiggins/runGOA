@@ -32,7 +32,13 @@
 # list of categories is all the functional categories from the gmt file
 overrep_test <- function(categories, query_genes, background_genes = NULL, min_query = 3,
                          pval_threshold = 0.05, ease = TRUE, sig_digits = 4,
-                         mult_test = TRUE, super_strict = FALSE, return_genes = FALSE) {
+                         mult_test = TRUE, super_strict = FALSE, return_genes = FALSE,
+                         min_genes_in_category = 5, max_genes_in_category = 500) {
+
+  category_lengths <- sapply(categories, length)
+  cat_to_keep <- category_lengths >= min_genes_in_category & category_lengths <= max_genes_in_category
+
+  categories <- categories[cat_to_keep]
 
   if(is.null(background_genes)) {
     warning("No background genes were entered so all the genes in the categories will be used as the background set.")
