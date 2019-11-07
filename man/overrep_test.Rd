@@ -7,7 +7,8 @@
 overrep_test(categories, query_genes, background_genes = NULL,
   min_query = 3, pval_threshold = 0.05, ease = TRUE,
   sig_digits = 4, mult_test = TRUE, super_strict = FALSE,
-  return_genes = FALSE)
+  return_genes = FALSE, min_genes_in_category = 5,
+  max_genes_in_category = 500)
 }
 \arguments{
 \item{categories}{list of named character vectors containing the functional groups.
@@ -34,6 +35,12 @@ still applied but the uncorrected pvalue is used to filter by.}
 tests as being the total number of functional categories. By default the number
 of tests corrected for is only the number of functional categories that contain
 > min_query genes}
+
+\item{min_genes_in_category}{minimum number of genes in functional category for
+it to be tested}
+
+\item{max_genes_in_category}{maximum number of genes in functional category for
+it to be tested}
 }
 \value{
 results of functional overrepresentation test. If no categories have a

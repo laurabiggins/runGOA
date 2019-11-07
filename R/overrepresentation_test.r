@@ -21,6 +21,10 @@
 #' tests as being the total number of functional categories. By default the number
 #' of tests corrected for is only the number of functional categories that contain
 #' > min_query genes
+#' @param min_genes_in_category minimum number of genes in functional category for
+#' it to be tested
+#' @param max_genes_in_category maximum number of genes in functional category for
+#' it to be tested
 #' @return results of functional overrepresentation test. If no categories have a
 #' p-value <= pval_threshold a NULL object will be returned.
 #' @examples
