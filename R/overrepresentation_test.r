@@ -25,6 +25,12 @@
 #' it to be tested
 #' @param max_genes_in_category maximum number of genes in functional category for
 #' it to be tested
+#' @param unique_genes_in_categories a vector of all the (deduplicated) genes in
+#' the functional categories. If the function is only being run once, this can be
+#' left as NULL (default). If the function will be run multiple times using the
+#' same set of functional categories it is more efficient to calculate this outside
+#' of the function and pass as a parameter.
+#' Calculated using: unique_genes_in_categories <- unique(as.vector(unlist(categories)))
 #' @return results of functional overrepresentation test. If no categories have a
 #' p-value <= pval_threshold a NULL object will be returned.
 #' @examples
@@ -57,7 +63,7 @@ overrep_test <- function(categories, query_genes, background_genes = NULL, min_q
   }
 
   query_genes <- query_genes[query_genes %in% unique_genes_in_categories]
-  
+
   matched_categories <- categories[sapply(categories, function(x) {
     sum(!is.na(fastmatch::fmatch(query_genes, x))) >= min_query
   })]
