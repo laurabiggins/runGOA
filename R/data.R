@@ -10,7 +10,7 @@
 #'   \item{genes}{vector of genes in the category}
 #'   ...
 #' }
-#' @source \url{http://download.baderlab.org/EM_Genesets/current_release/Human/symbol/Human_GO_AllPathways_no_GO_iea_October_01_2019_symbol.gmt}
+#' @source \url{http://download.baderlab.org/EM_Genesets/current_release/Human/symbol/Human_GO_AllPathways_no_GO_iea_January_01_2020_symbol.gmt}
 #' @examples
 #' head(human_categories, n = 2)
 "human_categories"
@@ -29,7 +29,7 @@
 #'   \item{genes}{vector of genes in the category}
 #'   ...
 #' }
-#' @source \url{http://download.baderlab.org/EM_Genesets/current_release/Mouse/symbol/Mouse_GO_AllPathways_no_GO_iea_October_01_2019_symbol.gmt}
+#' @source \url{http://download.baderlab.org/EM_Genesets/current_release/Mouse/symbol/Mouse_GO_AllPathways_no_GO_iea_January_01_2020_symbol.gmt}
 #' @examples
 #' head(mouse_categories, n=3)
 "mouse_categories"

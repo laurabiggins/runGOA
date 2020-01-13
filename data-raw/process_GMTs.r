@@ -23,8 +23,8 @@ process_GMT <- function(file, min_genes = 3, max_genes = 30000) {
   genes_in_categories[category_lengths >= min_genes & category_lengths <= max_genes]
 }
 
-human_categories <- process_GMT(file = "Human_GO_AllPathways_no_GO_iea_October_01_2019_symbol.gmt.txt", min_genes = 5)
-mouse_categories <- process_GMT(file = "Mouse_GO_AllPathways_no_GO_iea_October_01_2019_symbol.gmt.txt", min_genes = 5)
+human_categories <- process_GMT(file = "Human_GO_AllPathways_no_GO_iea_January_01_2020_symbol.gmt.txt", min_genes = 5)
+mouse_categories <- process_GMT(file = "Mouse_GO_AllPathways_no_GO_iea_January_01_2020_symbol.gmt.txt", min_genes = 5)
 
 
 # usethis::use_data(human_go, overwrite = TRUE) # 3.3MB

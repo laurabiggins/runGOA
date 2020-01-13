@@ -16,12 +16,14 @@ knitr::opts_chunk$set(
 
 
 ```{r setup2}
+#library(devtools)
+#devtools::install_github("laurabiggins/runGOA")
 #library(runGOA)
 devtools::load_all()
 ```
 
 ```{r}
-mouse_results <- overrep_test(mouse_categories, genes_1)
+mouse_results <- overrep_test(mouse_categories, genes_1, max_genes_in_category = 100)
 mouse_tibble <- tibble::as_tibble(mouse_results, rownames = "category")
 mouse_tibble
 ```

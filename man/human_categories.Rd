@@ -11,7 +11,7 @@
   ...
 }}
 \source{
-\url{http://download.baderlab.org/EM_Genesets/current_release/Human/symbol/Human_GO_AllPathways_no_GO_iea_October_01_2019_symbol.gmt}
+\url{http://download.baderlab.org/EM_Genesets/current_release/Human/symbol/Human_GO_AllPathways_no_GO_iea_January_01_2020_symbol.gmt}
 }
 \usage{
 human_categories
