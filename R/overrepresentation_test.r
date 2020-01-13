@@ -37,7 +37,7 @@
 overrep_test <- function(categories, query_genes, background_genes = NULL, min_query = 3,
                          pval_threshold = 0.05, ease = TRUE, sig_digits = 4,
                          mult_test = TRUE, super_strict = FALSE, return_genes = FALSE,
-                         min_genes_in_category = 5, max_genes_in_category = 500) {
+                         min_genes_in_category = 5, max_genes_in_category = 500, unique_genes_in_categories = NULL) {
 
   category_lengths <- sapply(categories, length)
   cat_to_keep <- category_lengths >= min_genes_in_category & category_lengths <= max_genes_in_category
@@ -52,6 +52,12 @@ overrep_test <- function(categories, query_genes, background_genes = NULL, min_q
   query_genes      <- clean_text(query_genes)
   background_genes <- clean_text(background_genes)
 
+  if(is.null(unique_genes_in_categories)){
+      unique_genes_in_categories <- unique(as.vector(unlist(categories)))
+  }
+
+  query_genes <- query_genes[query_genes %in% unique_genes_in_categories]
+  
   matched_categories <- categories[sapply(categories, function(x) {
     sum(!is.na(fastmatch::fmatch(query_genes, x))) >= min_query
   })]
