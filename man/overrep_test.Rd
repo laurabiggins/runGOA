@@ -8,7 +8,7 @@ overrep_test(categories, query_genes, background_genes = NULL,
   min_query = 3, pval_threshold = 0.05, ease = TRUE,
   sig_digits = 4, mult_test = TRUE, super_strict = FALSE,
   return_genes = FALSE, min_genes_in_category = 5,
-  max_genes_in_category = 500)
+  max_genes_in_category = 500, unique_genes_in_categories = NULL)
 }
 \arguments{
 \item{categories}{list of named character vectors containing the functional groups.
@@ -41,6 +41,13 @@ it to be tested}
 
 \item{max_genes_in_category}{maximum number of genes in functional category for
 it to be tested}
+
+\item{unique_genes_in_categories}{a vector of all the (deduplicated) genes in
+the functional categories. If the function is only being run once, this can be
+left as NULL (default). If the function will be run multiple times using the
+same set of functional categories it is more efficient to calculate this outside
+of the function and pass as a parameter.
+Calculated using: unique_genes_in_categories <- unique(as.vector(unlist(categories)))}
 }
 \value{
 results of functional overrepresentation test. If no categories have a
