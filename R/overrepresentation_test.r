@@ -97,6 +97,8 @@ overrep_test <- function(categories, query_genes, background_genes = NULL, min_q
     category_length = sapply(matched_categories, length)
   )
 
+  rownames(df) <- names(matched_categories)
+  
   if(return_genes){
     warning("returning all the genes")
     df$genes <- sapply(matched_categories, function(x) {
