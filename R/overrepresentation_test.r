@@ -72,10 +72,16 @@ overrep_test <- function(categories, query_genes, background_genes = NULL, min_q
 
   background_genes <- background_genes[background_genes %in% unique_genes_in_categories]
   
-  matched_categories <- categories[sapply(categories, function(x) {
-    sum(!is.na(fastmatch::fmatch(query_genes, x))) >= min_query
-  })]
+  #matched_categories <- categories[sapply(categories, function(x) {
+  #  sum(!is.na(fastmatch::fmatch(query_genes, x))) >= min_query
+  #})]
 
+  matches <- sapply(categories, function(x) {
+    sum(!is.na(fastmatch::fmatch(query_genes, x))) >= min_query
+  })
+
+  matched_categories <- categories[matches]
+  
   if (length(matched_categories) < 1) {
     warning("The set of query genes were not found in the functional categories")
     return(NULL)
